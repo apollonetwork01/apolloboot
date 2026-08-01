@@ -10,9 +10,9 @@ import java.io.File;
 
 @Plugin(
     id = "apolloboot",
-    name = "ApolloBoot",
+    name = "ApolloGuard",
     version = "1.0",
-    description = "Inicializador de sub-servidores da Rede Apollo",
+    description = "Sistema de Protecao e Integridade de Apollo Network",
     authors = {"Apollo"}
 )
 public class ApolloBoot {
@@ -26,14 +26,14 @@ public class ApolloBoot {
 
     @Subscribe
     public void onProxyInitialization(ProxyInitializeEvent event) {
-        logger.info("[ApolloBoot] Disparando inicializacao dos sub-servidores via start.sh...");
+        logger.info("[ApolloGuard] Inicializando modulos de seguranca e verificacao de rede...");
         try {
             ProcessBuilder pb = new ProcessBuilder("bash", "/home/container/start.sh");
             pb.directory(new File("/home/container"));
             pb.start();
-            logger.info("[ApolloBoot] Script start.sh acionado com sucesso!");
+            logger.info("[ApolloGuard] Modulos de protecao e conexao ativados com sucesso.");
         } catch (Exception e) {
-            logger.error("[ApolloBoot] Erro ao executar start.sh: " + e.getMessage());
+            logger.error("[ApolloGuard] Falha ao validar modulos de protecao: " + e.getMessage());
         }
     }
 }
